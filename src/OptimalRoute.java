@@ -3,9 +3,13 @@ import java.util.ArrayList;
 public class OptimalRoute {
 	
 	private ArrayList<Integer> nodes = new ArrayList<Integer>();
+	private int source;
+	private int destination;
 	private int timeRequired;
 	
 	public OptimalRoute(ArrayList<Path> paths) {
+		this.source = paths.get(0).getSource();
+		this.destination = paths.get(paths.size() - 1).getDestination();
 		int startingNode;
 		int endingNode;
 		
@@ -28,10 +32,14 @@ public class OptimalRoute {
 	}
 	
 	public String toString() {
-		return "The optimal route passes through points " + 
+		return "The optimal route from " + 
+				this.source + 
+				" to " + 
+				this.destination + 
+				" passes through nodes " + 
 				this.nodes.toString() + 
-				" and arrives at time " 
-				+ this.timeRequired;
+				" and arrives at time " +
+				this.timeRequired;
 	}
 	
 }
